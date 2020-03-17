@@ -60,16 +60,17 @@ public class MainActivity extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (!isNetworkAvailable()){
+                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
+                        }
                         if (idNumber.getText().toString().isEmpty()){
                             idNumber.setError("Required");
                         }if (idNumber.getText().length()<8 || idNumber.getText().length()>8){
                             Toast.makeText(MainActivity.this,"Please input a valid ID number",Toast.LENGTH_SHORT).show();
-                        }if (!isNetworkAvailable()){
-                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
                         }
                         else{
                             vv.dismiss();
-                            final int min = 53;
+                            final int min = 54;
                             final int max = 57;
                             final int randomn = new Random().nextInt((max - min) + 1) + min;
                             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
@@ -123,12 +124,13 @@ public class MainActivity extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (!isNetworkAvailable()){
+                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
+                        }
                         if (idNumber.getText().toString().isEmpty()){
                             idNumber.setError("Required");
                         }if (idNumber.getText().length()<8 || idNumber.getText().length()>8){
                             Toast.makeText(MainActivity.this,"Please input a valid ID number",Toast.LENGTH_SHORT).show();
-                        }if (!isNetworkAvailable()){
-                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
                         }
                         else{
                             all.dismiss();
@@ -163,12 +165,13 @@ public class MainActivity extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (!isNetworkAvailable()){
+                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
+                        }
                         if (idNumber.getText().toString().isEmpty()){
                             idNumber.setError("Required");
                         }if (idNumber.getText().length()<8 || idNumber.getText().length()>8){
                             Toast.makeText(MainActivity.this,"Please input a valid ID number",Toast.LENGTH_SHORT).show();
-                        }if (!isNetworkAvailable()){
-                            Toast.makeText(MainActivity.this,"Check your network connection",Toast.LENGTH_SHORT).show();
                         }
                         else{
                             dialog11.dismiss();

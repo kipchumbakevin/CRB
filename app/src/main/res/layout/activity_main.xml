@@ -198,7 +198,12 @@
             android:layout_below="@id/icpoor"
             android:text="Poor (0-25%)"/>
     </RelativeLayout>
-    <include layout="@layout/content_progress"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+    <include
+        layout="@layout/content_progress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

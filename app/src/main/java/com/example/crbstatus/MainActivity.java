@@ -70,23 +70,33 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else{
                             vv.dismiss();
-                            final int min = 54;
-                            final int max = 57;
-                            final int randomn = new Random().nextInt((max - min) + 1) + min;
-                            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-                            View vViewB = getLayoutInflater().inflate(R.layout.creditscore,null);
-                            TextView random = vViewB.findViewById(R.id.random_score);
-                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-
+                            new CountDownTimer(3000, 1000) { // 10 seconds, in 1 second intervals
+                                public void onTick(long millisUntilFinished) {
+                                    showProgress();
                                 }
-                            });
 
-                            alert.setView(vViewB);
-                            AlertDialog alll = alert.create();
-                            alll.show();
-                            random.setText(""+Integer.toString(randomn)+"%");
+                                public void onFinish() {
+                                    hideProgress();
+                                    final int min = 54;
+                                    final int max = 57;
+                                    final int randomn = new Random().nextInt((max - min) + 1) + min;
+                                    AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+                                    View vViewB = getLayoutInflater().inflate(R.layout.creditscore,null);
+                                    TextView random = vViewB.findViewById(R.id.random_score);
+                                    alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        }
+                                    });
+
+                                    alert.setView(vViewB);
+                                    AlertDialog alll = alert.create();
+                                    alll.show();
+                                    random.setText(""+Integer.toString(randomn)+"%");
+                                }
+                            }.start();
+
                         }
                     }
                 });
@@ -116,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 View vView = getLayoutInflater().inflate(R.layout.pop_up,null);
                 final EditText idNumber = vView.findViewById(R.id.enter_id);
                 Button done = vView.findViewById(R.id.done);
-                progressL = vView.findViewById(R.id.progressLoad);
 
                 alert.setView(vView);
                 final AlertDialog all = alert.create();
@@ -134,16 +143,25 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else{
                             all.dismiss();
-                            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-                            alertDialog.setMessage("Request successfull! Due to a high number of applicants, this process takes 24hrs.")
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
+                            new CountDownTimer(3000, 1000) { // 10 seconds, in 1 second intervals
+                                public void onTick(long millisUntilFinished) {
+                                    showProgress();
+                                }
 
-                                        }
-                                    });
-                            AlertDialog dialog = alertDialog.create();
-                            dialog.show();
+                                public void onFinish() {
+                                    hideProgress();
+                                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                                    alertDialog.setMessage("Request received! Due to a high number of applicants, this process takes 24hrs.")
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                                }
+                                            });
+                                    AlertDialog dialog = alertDialog.create();
+                                    dialog.show();
+                                }
+                            }.start();
                         }
                     }
                 });
@@ -157,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
                 View view1 = getLayoutInflater().inflate(R.layout.pop_up,null);
                 final EditText idNumber = view1.findViewById(R.id.enter_id);
                 Button done = view1.findViewById(R.id.done);
-                progressL = view1.findViewById(R.id.progressLoad);
 
                 dialog.setView(view1);
                 final AlertDialog dialog11 = dialog.create();
@@ -175,16 +192,25 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else{
                             dialog11.dismiss();
-                            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
-                            alertDialog.setMessage("Your request is being processed. Check after a few minutes")
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
+                            new CountDownTimer(3000, 1000) { // 10 seconds, in 1 second intervals
+                                public void onTick(long millisUntilFinished) {
+                                    showProgress();
+                                }
 
-                                        }
-                                    });
-                            AlertDialog dialog = alertDialog.create();
-                            dialog.show();
+                                public void onFinish() {
+                                    hideProgress();
+                                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                                    alertDialog.setMessage("Your request is being processed. Check after a few minutes")
+                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                                }
+                                            });
+                                    AlertDialog dialog = alertDialog.create();
+                                    dialog.show();
+                                }
+                            }.start();
                         }
                     }
                 });
